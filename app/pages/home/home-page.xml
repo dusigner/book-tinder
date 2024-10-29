@@ -1,0 +1,32 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Book Exchange">
+        <ActionItem tap="{{ onProfile }}" ios.position="right" android.position="actionBar">
+            <Label text="Profile" class="text-purple-600" />
+        </ActionItem>
+    </ActionBar>
+
+    <GridLayout rows="*, auto">
+        <StackLayout row="0" class="p-4">
+            <CardView elevation="4" radius="10" class="bg-white m-2">
+                <GridLayout rows="*, auto" class="p-4">
+                    <Image row="0" src="{{ currentBook.imageUrl }}" 
+                        class="h-96 w-full rounded-lg" stretch="aspectFill" />
+                    <StackLayout row="1" class="mt-2">
+                        <Label text="{{ currentBook.title }}" class="text-xl font-bold" />
+                        <Label text="{{ currentBook.author }}" class="text-gray-600" />
+                        <Label text="{{ currentBook.condition }}" class="text-purple-600" />
+                    </StackLayout>
+                </GridLayout>
+            </CardView>
+        </StackLayout>
+
+        <GridLayout row="1" columns="*, *, *" class="p-4">
+            <Button col="0" text="✗" tap="{{ onReject }}" 
+                class="btn-circle bg-red-500 text-white text-2xl" />
+            <Button col="1" text="💬" tap="{{ onInfo }}" 
+                class="btn-circle bg-blue-500 text-white text-2xl" />
+            <Button col="2" text="♥" tap="{{ onLike }}" 
+                class="btn-circle bg-green-500 text-white text-2xl" />
+        </GridLayout>
+    </GridLayout>
+</Page>

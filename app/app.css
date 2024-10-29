@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn-circle {
+    width: 60;
+    height: 60;
+    border-radius: 30;
+    font-size: 24;
+}
+
+.input {
+    border-width: 1;
+    border-color: #E5E7EB;
+}
+
+.card {
+    elevation: 4;
+    background-color: white;
+    border-radius: 10;
+}

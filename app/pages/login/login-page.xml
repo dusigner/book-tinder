@@ -1,0 +1,32 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="bg-gray-100">
+    <ActionBar title="Book Exchange" class="bg-purple-600 text-white" />
+    
+    <StackLayout class="p-4">
+        <Image src="~/images/logo.png" class="h-32 w-32 mb-4 self-center" />
+        
+        <TextField hint="Email" text="{{ email }}" 
+            class="input p-4 mb-4 rounded-lg bg-white" 
+            keyboardType="email" 
+            autocorrect="false"
+            autocapitalizationType="none" />
+            
+        <TextField hint="Senha" text="{{ password }}" 
+            class="input p-4 mb-4 rounded-lg bg-white" 
+            secure="true" />
+            
+        <Button text="{{ isLoading ? 'Entrando...' : 'Entrar' }}" 
+            tap="{{ onLogin }}" 
+            isEnabled="{{ !isLoading }}"
+            class="btn p-4 rounded-lg bg-purple-600 text-white" />
+            
+        <Button text="Criar Conta" 
+            tap="{{ onSignUp }}" 
+            isEnabled="{{ !isLoading }}"
+            class="btn p-4 mt-2 rounded-lg bg-transparent text-purple-600 border-purple-600 border-2" />
+            
+        <Label text="{{ errorMessage }}" 
+            class="text-red-500 text-center mt-2" 
+            visibility="{{ errorMessage ? 'visible' : 'collapsed' }}" 
+            textWrap="true" />
+    </StackLayout>
+</Page>

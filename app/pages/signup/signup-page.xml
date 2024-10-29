@@ -1,0 +1,66 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="bg-gray-100">
+    <ActionBar title="Criar Conta" class="bg-purple-600 text-white">
+        <NavigationButton text="Voltar" android.systemIcon="ic_menu_back" />
+    </ActionBar>
+    
+    <ScrollView>
+        <StackLayout class="p-4">
+            <Image src="~/images/logo.png" class="h-32 w-32 mb-4 self-center" />
+            
+            <!-- Google Sign Up Button -->
+            <Button text="Continuar com Google" 
+                tap="{{ onGoogleSignUp }}" 
+                class="btn p-4 rounded-lg bg-white text-black border-gray-300 border-2 mb-4">
+                <FormattedString>
+                    <Span text="🌐  " />
+                    <Span text="Continuar com Google" />
+                </FormattedString>
+            </Button>
+
+            <StackLayout class="my-4">
+                <GridLayout columns="*, auto, *" class="items-center">
+                    <StackLayout col="0" class="h-[1] bg-gray-300" />
+                    <Label col="1" text="ou" class="mx-4 text-gray-500" />
+                    <StackLayout col="2" class="h-[1] bg-gray-300" />
+                </GridLayout>
+            </StackLayout>
+            
+            <!-- Manual Sign Up Form -->
+            <TextField hint="Nome completo" 
+                text="{{ name }}" 
+                class="input p-4 mb-4 rounded-lg bg-white" 
+                autocorrect="false" />
+                
+            <TextField hint="Email" 
+                text="{{ email }}" 
+                class="input p-4 mb-4 rounded-lg bg-white" 
+                keyboardType="email" 
+                autocorrect="false"
+                autocapitalizationType="none" />
+                
+            <TextField hint="Senha" 
+                text="{{ password }}" 
+                class="input p-4 mb-4 rounded-lg bg-white" 
+                secure="true" />
+                
+            <TextField hint="Confirmar senha" 
+                text="{{ confirmPassword }}" 
+                class="input p-4 mb-4 rounded-lg bg-white" 
+                secure="true" />
+                
+            <Button text="{{ isLoading ? 'Criando conta...' : 'Criar conta' }}" 
+                tap="{{ onSignUp }}" 
+                isEnabled="{{ !isLoading }}"
+                class="btn p-4 rounded-lg bg-purple-600 text-white" />
+                
+            <Label text="{{ errorMessage }}" 
+                class="text-red-500 text-center mt-2" 
+                visibility="{{ errorMessage ? 'visible' : 'collapsed' }}" 
+                textWrap="true" />
+                
+            <Label text="Ao criar uma conta, você concorda com nossos Termos de Uso e Política de Privacidade" 
+                class="text-gray-500 text-center mt-4 text-sm" 
+                textWrap="true" />
+        </StackLayout>
+    </ScrollView>
+</Page>
